@@ -15,22 +15,27 @@ constexpr int D = 3;
 // Implement own velocity field
 class velocityField : public lsVelocityField<double> {
 public:
-  // double
-  std::array<double, D>
-  getVectorVelocity(const std::array<double, 3> & /*coordinate*/, int material,
+  double
+  getScalarVelocity(const std::array<double, 3> & /*coordinate*/, int material,
                     const std::array<double, 3> & /*normalVector*/,
                     unsigned long pointID) final {
-        std::array<double, D> v = {0, 0, 1};
-        return v;
-        // return 1;
+    // Some arbitrary velocity function of your liking
+    // (try changing it and see what happens :)
+    double velocity;
+    switch (material) {
+    case 0:
+      velocity = 1; // -1.8 per second
+      break;
+    case 1:
+      velocity = 5;
+      break;
+    }
+    return velocity;
   }
 };
 
-
 int main() {
-  //seting  number of dimensions
   
-
   //extent of the domain in each direction
   double extent = 40 ;
   double gridDelta = 1;
@@ -61,22 +66,64 @@ int main() {
   lsVTKWriter<double>(mesh, "Test/substrate-0.vtk").apply();
 
   auto mask = lsSmartPointer<lsDomain<double, D>>::New(substrate);
-  auto velocities = lsSmartPointer<velocityField>::New();
+  // auto velocities = lsSmartPointer<velocityField>::New();
 
-  std::cout << "Advecting..." << std::endl;
-  lsAdvect<double, D> advectionKernel;
-  advectionKernel.setVelocityField(velocities);
-  advectionKernel.insertNextLevelSet(mask);
+  // std::cout << "Advecting..." << std::endl;
+  // lsAdvect<double, D> advectionKernel;
+  // advectionKernel.setVelocityField(velocities);
+  // advectionKernel.insertNextLevelSet(mask);
 
-  advectionKernel.setAdvectionTime(10.);
-  advectionKernel.apply();
-  double advectionSteps = advectionKernel.getNumberOfTimeSteps();
-  std::cout << "Number of Advection steps taken: " << advectionSteps
-            << std::endl;
+  // advectionKernel.setAdvectionTime(10.);
+  // advectionKernel.apply();
+  // double advectionSteps = advectionKernel.getNumberOfTimeSteps();
+  // std::cout << "Number of Advection steps taken: " << advectionSteps
+  //           << std::endl;
+
+  double minCorner_mask[3] = {-extent+1, -extent+1, 0};
+  double maxCorner_mask[3] = {extent-1, extent-1, 10};
+
+
+  auto Box_mask = lsSmartPointer<lsBox<double, D>>::New(minCorner_mask,maxCorner_mask);
+  lsMakeGeometry<double, D>(mask, Box_mask).apply();
 
   std::cout << "Extracting..." << std::endl;
   lsToSurfaceMesh<double, D>(mask, mesh).apply();
-  lsVTKWriter<double>(mesh, "Test/mask-0.vtk").apply();
+  lsVTKWriter<double>(mesh, "Test/mask_pre-0.vtk").apply();
   
+  auto Cylinder = lsSmartPointer<lsDomain<double, D>>::New(gridDelta);
+  lsMakeGeometry<double, D>(Cylinder, lsSmartPointer<lsCylinder<double, D>>::New(origin, PlaneNormal, 12, 15)).apply();
+
+  lsBooleanOperation<double, D>(mask, Cylinder, lsBooleanOperationEnum::RELATIVE_COMPLEMENT).apply();
+
+  lsToSurfaceMesh<double, D>(mask, mesh).apply();
+  lsVTKWriter<double>(mesh, "Test/mask-0.vtk").apply();
+
+  // //first depositing the passivationlayer
+  // auto passivLayer = lsSmartPointer<lsDomain<double, D>>::New(gridDelta);
+
+  lsBooleanOperation<double, D>(mask, substrate, lsBooleanOperationEnum::UNION).apply();
+
+  //advecting passivationlayer
+  auto velocities = lsSmartPointer<velocityField>::New();
+
+  std::cout << "Advecting" << std::endl;
+  lsAdvect<double, D> advectionKernel;
+
+  // set velocity field
+  advectionKernel.setVelocityField(velocities);
+  advectionKernel.insertNextLevelSet(substrate);
+  advectionKernel.insertNextLevelSet(mask);
+
+  advectionKernel.setAdvectionTime(1);
+  advectionKernel.apply();
+
+  std::cout << "Extracting..." << std::endl;
+    lsToSurfaceMesh<double, D>(mask, mesh).apply();
+    lsVTKWriter<double>(mesh, "Test/mask-1.vtk").apply();
+    lsToSurfaceMesh<double, D>(substrate, mesh).apply();
+    lsVTKWriter<double>(mesh, "Test/substrate-1.vtk").apply();
+  
+
+
   return EXIT_SUCCESS;
 }
