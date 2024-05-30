@@ -43,33 +43,17 @@ int main() {
     double origin[3] = {0, 0, 0};
     double PlaneNormal[3] = {0, 0, 1};
 
-    auto plane = lsSmartPointer<lsPlane<double, D>>::New(origin, PlaneNormal);
-    lsMakeGeometry<double, D>(substrate, plane).apply();
+    double minCorner[D] = {-extent+1, -extent+1, -40};
+    double maxCorner[D] = {extent-1, extent-1, 0};
+
+    auto Box = lsSmartPointer<lsBox<double, D>>::New(minCorner,maxCorner);
+    lsMakeGeometry<double, D>(substrate, Box).apply();
 
     auto mesh = lsSmartPointer<lsMesh<double>>::New();
 
     std::cout << "Extracting..." << std::endl;
     lsToSurfaceMesh<double, D>(substrate, mesh).apply();
-    lsVTKWriter<double>(mesh, "Test/plane-0.vtk").apply();
-
-    //advecting m ask layer
-    auto velocities = lsSmartPointer<velocityField>::New();
-
-    std::cout << "Advecting..." << std::endl;
-    lsAdvect<double, D> advectionKernel;
-
-    //Set velocity field
-    advectionKernel.setVelocityField(velocities);
-    advectionKernel.insertNextLevelSet(substrate);
-
-    advectionKernel.setAdvectionTime(10.);
-    advectionKernel.apply();
-    double advectionSteps = advectionKernel.getNumberOfTimeSteps();
-    std::cout << "Number of timesteps taken during the advection: " << advectionSteps << std::endl;
-
-    std::cout << "Extracting..." << std::endl;
-    lsToSurfaceMesh<double, D>(substrate, mesh).apply();
-    lsVTKWriter<double>(mesh, "Test/plane-1.vtk").apply();
+    lsVTKWriter<double>(mesh, "Test/substrate-0.vtk").apply();
 
 
     return EXIT_SUCCESS;
