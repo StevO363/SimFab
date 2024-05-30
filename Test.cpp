@@ -24,7 +24,7 @@ public:
     double velocity;
     switch (material) {
     case 0:
-      velocity = 1; // -1.8 per second
+      velocity = 0; // -1.8 per second
       break;
     case 1:
       velocity = 5;
