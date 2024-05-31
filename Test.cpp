@@ -24,13 +24,38 @@ public:
     double velocity;
     switch (material) {
     case 0:
-      velocity = 0; // -1.8 per second
+      velocity = 1; // -1.8 per second
       break;
     case 1:
-      velocity = 5;
+      velocity = 1;
       break;
     }
     return velocity;
+  }
+};
+
+
+// implement velocity field describing a directional etch
+class directionalEtch : public lsVelocityField<double> {
+public:
+  double getScalarVelocity(const std::array<double, 3> & /*coordinate*/,
+                           int material,
+                           const std::array<double, 3> &normalVector,
+                           unsigned long /*pointId*/) {
+    // etch directionally
+    if (material > 0) {
+      return 0;
+    } else {
+      return (normalVector[2] > 0.) ? -normalVector[2] : 0;
+    }
+  }
+
+  std::array<double, 3>
+  getVectorVelocity(const std::array<double, 3> & /*coordinate*/,
+                    int /*material*/,
+                    const std::array<double, 3> & /*normalVector*/,
+                    unsigned long /*pointId*/) {
+    return std::array<double, 3>({});
   }
 };
 
@@ -103,7 +128,25 @@ int main() {
 
   lsBooleanOperation<double, D>(mask, substrate, lsBooleanOperationEnum::UNION).apply();
 
-  //advecting passivationlayer
+  lsAdvect<double, D> advectionKernelDirEtch;
+
+  advectionKernelDirEtch.insertNextLevelSet(substrate);
+  advectionKernelDirEtch.insertNextLevelSet(mask);
+
+  auto velocitiesDirEtch = lsSmartPointer<directionalEtch>::New();
+  advectionKernelDirEtch.setVelocityField(velocitiesDirEtch);
+
+  int EtchTime =   15;
+  advectionKernelDirEtch.setAdvectionTime(EtchTime);
+  advectionKernelDirEtch.apply();
+
+  std::cout << "Extracting..." << std::endl;
+  lsToSurfaceMesh<double, D>(mask, mesh).apply();
+  lsVTKWriter<double>(mesh, "Test/mask-1.vtk").apply();
+  lsToSurfaceMesh<double, D>(substrate, mesh).apply();
+  lsVTKWriter<double>(mesh, "Test/substrate-1.vtk").apply();
+
+  // //advecting passivationlayer
   auto velocities = lsSmartPointer<velocityField>::New();
 
   std::cout << "Advecting" << std::endl;
@@ -114,15 +157,24 @@ int main() {
   advectionKernel.insertNextLevelSet(substrate);
   advectionKernel.insertNextLevelSet(mask);
 
-  advectionKernel.setAdvectionTime(1);
+  advectionKernel.setAdvectionTime(3);
   advectionKernel.apply();
 
   std::cout << "Extracting..." << std::endl;
-    lsToSurfaceMesh<double, D>(mask, mesh).apply();
-    lsVTKWriter<double>(mesh, "Test/mask-1.vtk").apply();
-    lsToSurfaceMesh<double, D>(substrate, mesh).apply();
-    lsVTKWriter<double>(mesh, "Test/substrate-1.vtk").apply();
-  
+  lsToSurfaceMesh<double, D>(mask, mesh).apply();
+  lsVTKWriter<double>(mesh, "Test/mask-2.vtk").apply();
+  lsToSurfaceMesh<double, D>(substrate, mesh).apply();
+  lsVTKWriter<double>(mesh, "Test/substrate-2.vtk").apply();
+
+
+  advectionKernelDirEtch.apply();
+
+  std::cout << "Extracting..." << std::endl;
+  lsToSurfaceMesh<double, D>(mask, mesh).apply();
+  lsVTKWriter<double>(mesh, "Test/mask-3.vtk").apply();
+  lsToSurfaceMesh<double, D>(substrate, mesh).apply();
+  lsVTKWriter<double>(mesh, "Test/substrate-3.vtk").apply();
+
 
 
   return EXIT_SUCCESS;
