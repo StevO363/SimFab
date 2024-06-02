@@ -1,5 +1,4 @@
 #include <iostream>
-
 #include <lsAdvect.hpp>
 #include <lsBooleanOperation.hpp>
 #include <lsDomain.hpp>
@@ -62,6 +61,28 @@ public:
   }
 };
 
+// class directionalEtch2 : public lsVelocityField<double> {
+// public:
+//   double getScalarVelocity(const std::array<double, 3> & /*coordinate*/,
+//                            int material,
+//                            const std::array<double, 3> &normalVector,
+//                            unsigned long /*pointId*/) {
+//     // etch directionally
+//     if (material == 0) {
+//       return 0;
+//     } else {
+//       return (normalVector[2] > 0.) ? -normalVector[2] : 0;
+//     }
+//   }
+
+//   std::array<double, 3>
+//   getVectorVelocity(const std::array<double, 3> & /*coordinate*/,
+//                     int /*material*/,
+//                     const std::array<double, 3> & /*normalVector*/,
+//                     unsigned long /*pointId*/) {
+//     return std::array<double, 3>({});
+//   }
+// };
 
 // class directionalPassLayer : public lsVelocityField<double> {
 // public:
@@ -195,6 +216,23 @@ int main() {
   lsToSurfaceMesh<double, D>(passivLayer, mesh).apply();
   lsVTKWriter<double>(mesh, "Test/passivLayer-2.vtk").apply();
 
+  // lsAdvect<double, 3> DirEtchKernel;
+  // DirEtchKernel.insertNextLevelSet(substrate);
+  // DirEtchKernel.insertNextLevelSet(mask);
+  // DirEtchKernel.insertNextLevelSet(passivLayer);
+
+  // auto velDirectionalEtch2 = lsSmartPointer<directionalEtch2>::New();
+  // DirEtchKernel.setVelocityField(velDirectionalEtch2);
+  // DirEtchKernel.setAdvectionTime(10);
+  // DirEtchKernel.apply();
+
+  // std::cout << "Extracting..." << std::endl;
+  // lsToSurfaceMesh<double, D>(mask, mesh).apply();
+  // lsVTKWriter<double>(mesh, "Test/mask-3.vtk").apply();
+  // lsToSurfaceMesh<double, D>(substrate, mesh).apply();
+  // lsVTKWriter<double>(mesh, "Test/substrate-3.vtk").apply();
+  // lsToSurfaceMesh<double, D>(passivLayer, mesh).apply();
+  // lsVTKWriter<double>(mesh, "Test/passivLayer-3.vtk").apply();
   
   return EXIT_SUCCESS;
 }
