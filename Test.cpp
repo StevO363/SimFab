@@ -94,8 +94,8 @@ public:
 //     if (material == 1) {
 //       return 0;
 //     } else {
-//       return (normalVector[2] > 0.) ? normalVector[2] : 0;
-//     }
+//       return (normalVector[2] > .) ? normalVector[2] : 0;
+//     }0
 //   }
 //   std::array<double, 3>
 //   getVectorVelocity(const std::array<double, 3> & /*coordinate*/,
