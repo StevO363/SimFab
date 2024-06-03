@@ -24,14 +24,23 @@ public:
                            int material,
                            const std::array<double, 3> &normalVector,
                            unsigned long /*pointId*/) {
-    // if the surface of material 1 is facing upwards, etch it anisotropically
-    if (material == 2 && normalVector[2] > 0.) {
-	  return -std::abs(normalVector[2]); //default
-	  //return -std::abs(normalVector[2]) + 0.2; //positive isotropic components
-	 // return -std::abs(normalVector[2] + 0.06* (normalVector[0] + normalVector[1] )); //change direction of process
-
+    if (material == 2 && normalVector[2] > 0) {
+	  return -std::abs(normalVector[2]);
     } else
-      return 0.;
+      return 0;
+  }
+};
+
+class gateSpacerVelocity : public lsVelocityField<double> {
+public:
+  double getScalarVelocity(const std::array<double, 3> & /*coordinate*/,
+                           int material,
+                           const std::array<double, 3> &normalVector,
+                           unsigned long /*pointId*/) {
+    if ((material == 2 || material == 3) && normalVector[2] > 0) {
+	  return -std::abs(normalVector[2]);
+    } else
+      return 0;
   }
 };
 
@@ -164,7 +173,7 @@ int main() {
 
     auto gate = lsSmartPointer<lsDomain<double, D>>::New(spacer);
 
-    double gateTime = 80;
+    double gateTime = 80 ;
     {
         std::cout << "Deposit gate ..." << std::endl;
         lsAdvect<double, D> advectionKernel;
@@ -213,7 +222,61 @@ int main() {
         lsVTKWriter<double>(mesh, "VTK/gate_4.vtk").apply();
     }
 
+    //adding mask box ontop of the gate
+    auto gateMask = lsSmartPointer<lsDomain<double, D>>::New(bounds, boundaryCons, gridDelta);
+    double gateMaskWidth = 10;
+    {
+        double minCorner[3] = {-extent, -gateMaskWidth/2, 0};
+        double maxCorner[3] = {extent, gateMaskWidth/2, 75};
+        auto mask = lsSmartPointer<lsBox<double, D>>::New(minCorner, maxCorner);
+        lsMakeGeometry<double, D>(gateMask, mask).apply();
+    }
 
+    {
+        auto mesh = lsSmartPointer<lsMesh<double>>::New();
+        lsToSurfaceMesh<double, D>(oxide, mesh).apply();
+        lsVTKWriter<double>(mesh, "VTK/oxide_5.vtk").apply();
+        lsToSurfaceMesh<double, D>(silicon, mesh).apply();
+        lsVTKWriter<double>(mesh, "VTK/silicon_5.vtk").apply();
+        lsToSurfaceMesh<double, D>(siliconMask, mesh).apply();
+        lsVTKWriter<double>(mesh, "VTK/mask_5.vtk").apply();
+        lsToSurfaceMesh<double, D>(spacer, mesh).apply();
+        lsVTKWriter<double>(mesh, "VTK/spacer_5.vtk").apply();
+        lsToSurfaceMesh<double, D>(gate, mesh).apply();
+        lsVTKWriter<double>(mesh, "VTK/gate_5.vtk").apply();
+        lsToSurfaceMesh<double, D>(gateMask, mesh).apply();
+        lsVTKWriter<double>(mesh, "VTK/gateMask_5.vtk").apply();
+    }
 
+    //etching the gate and spacer material
+    double gateSpacerTime = 80;
+    {
+        lsAdvect<double, D> advectionKernel;
+        auto velocity = lsSmartPointer<gateSpacerVelocity>::New();
+        advectionKernel.setVelocityField(velocity);
+
+        advectionKernel.insertNextLevelSet(oxide);
+        advectionKernel.insertNextLevelSet(silicon);
+        advectionKernel.insertNextLevelSet(spacer);
+        advectionKernel.insertNextLevelSet(gate);
+        advectionKernel.insertNextLevelSet(gateMask);
+        advectionKernel.setAdvectionTime(gateSpacerTime);
+        advectionKernel.apply();
+    }
+    {
+        auto mesh = lsSmartPointer<lsMesh<double>>::New();
+        lsToSurfaceMesh<double, D>(oxide, mesh).apply();
+        lsVTKWriter<double>(mesh, "VTK/oxide_6.vtk").apply();
+        lsToSurfaceMesh<double, D>(silicon, mesh).apply();
+        lsVTKWriter<double>(mesh, "VTK/silicon_6.vtk").apply();
+        lsToSurfaceMesh<double, D>(siliconMask, mesh).apply();
+        lsVTKWriter<double>(mesh, "VTK/mask_6.vtk").apply();
+        lsToSurfaceMesh<double, D>(spacer, mesh).apply();
+        lsVTKWriter<double>(mesh, "VTK/spacer_6.vtk").apply();
+        lsToSurfaceMesh<double, D>(gate, mesh).apply();
+        lsVTKWriter<double>(mesh, "VTK/gate_6.vtk").apply();
+        lsToSurfaceMesh<double, D>(gateMask, mesh).apply();
+        lsVTKWriter<double>(mesh, "VTK/gateMask_6.vtk").apply();
+    }
     return EXIT_SUCCESS;
 }
