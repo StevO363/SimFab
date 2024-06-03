@@ -25,7 +25,7 @@ public:
                            const std::array<double, 3> &normalVector,
                            unsigned long /*pointId*/) {
     // if the surface of material 1 is facing upwards, etch it anisotropically
-    if (material == 1 && normalVector[2] > 0.) {
+    if (material == 2 && normalVector[2] > 0.) {
 	  return -std::abs(normalVector[2]); //default
 	  //return -std::abs(normalVector[2]) + 0.2; //positive isotropic components
 	 // return -std::abs(normalVector[2] + 0.06* (normalVector[0] + normalVector[1] )); //change direction of process
@@ -85,7 +85,7 @@ int main() {
     double Si_width = 20;
     {
         double max_corner[3] = {Si_width/2, extent, 55};
-        double min_cormer[3] = {-Si_width/2, -extent, 49};
+        double min_cormer[3] = {-Si_width/2, -extent, 0};
         auto mask = lsSmartPointer<lsBox<double, D>>::New(min_cormer, max_corner);
         lsMakeGeometry<double, D>(siliconMask, mask).apply();
     }
@@ -100,18 +100,19 @@ int main() {
         lsToSurfaceMesh<double, D>(siliconMask, mesh).apply();
         lsVTKWriter<double>(mesh, "VTK/mask_0.vtk").apply();
     }
-    lsBooleanOperation<double, D>(siliconMask, silicon, lsBooleanOperationEnum::UNION).apply();
+    // lsBooleanOperation<double, D>(siliconMask, silicon, lsBooleanOperationEnum::UNION).apply();
     {
         std::cout << "Etching silicon Fin ..." << std::endl;
         lsAdvect<double, D> advectionKernel;
 
         auto velocity = lsSmartPointer<directionalEtchSi>::New();
         advectionKernel.setVelocityField(velocity);
+        advectionKernel.insertNextLevelSet(siliconMask);
         advectionKernel.insertNextLevelSet(oxide);
         advectionKernel.insertNextLevelSet(silicon);
-        advectionKernel.insertNextLevelSet(siliconMask);
-        advectionKernel.setAdvectionTime(50);
+        advectionKernel.setAdvectionTime(55);
         advectionKernel.apply();
+        std::cout << "finish etching the Silicon Fin" << std::endl;
     }
     // checking geometry so far
     {
@@ -123,6 +124,95 @@ int main() {
         lsToSurfaceMesh<double, D>(siliconMask, mesh).apply();
         lsVTKWriter<double>(mesh, "VTK/mask_1.vtk").apply();
     }
+
+    //from now on don't use siliconMask
+
+    //creating the spacer
+    auto spacer = lsSmartPointer<lsDomain<double, D>>::New(bounds, boundaryCons, gridDelta);
+
+    {
+        auto plane = lsSmartPointer<lsPlane<double, D>>::New(origin, planeNormal);
+        lsMakeGeometry(spacer, plane).apply();
+    }
+    lsBooleanOperation<double, D>(spacer, silicon, lsBooleanOperationEnum::UNION).apply();
+
+    double spacerTime = 5;
+    {
+        std::cout << "Deposit spacer ..." << std::endl;
+        lsAdvect<double, D> advectionKernel;
+        auto velocity = lsSmartPointer<isotropicDepos>::New();
+        advectionKernel.setVelocityField(velocity);
+        // advectionKernel.insertNextLevelSet(oxide);
+        advectionKernel.insertNextLevelSet(spacer);
+        advectionKernel.setAdvectionTime(spacerTime);
+        advectionKernel.apply();
+        std::cout << "finished depositing spacer" << std::endl;
+    }
+
+    // checking geometry so far
+    {
+        auto mesh = lsSmartPointer<lsMesh<double>>::New();
+        lsToSurfaceMesh<double, D>(oxide, mesh).apply();
+        lsVTKWriter<double>(mesh, "VTK/oxide_2.vtk").apply();
+        lsToSurfaceMesh<double, D>(silicon, mesh).apply();
+        lsVTKWriter<double>(mesh, "VTK/silicon_2.vtk").apply();
+        lsToSurfaceMesh<double, D>(siliconMask, mesh).apply();
+        lsVTKWriter<double>(mesh, "VTK/mask_2.vtk").apply();
+        lsToSurfaceMesh<double, D>(spacer, mesh).apply();
+        lsVTKWriter<double>(mesh, "VTK/spacer_2.vtk").apply();
+    }
+
+    auto gate = lsSmartPointer<lsDomain<double, D>>::New(spacer);
+
+    double gateTime = 80;
+    {
+        std::cout << "Deposit gate ..." << std::endl;
+        lsAdvect<double, D> advectionKernel;
+        auto velocity = lsSmartPointer<isotropicDepos>::New();
+        advectionKernel.setVelocityField(velocity);
+        // advectionKernel.insertNextLevelSet(oxide);
+        advectionKernel.insertNextLevelSet(gate);
+        advectionKernel.setAdvectionTime(gateTime);
+        advectionKernel.apply();
+        std::cout << "finished depositing gate" << std::endl;
+    }
+
+    {
+        auto mesh = lsSmartPointer<lsMesh<double>>::New();
+        lsToSurfaceMesh<double, D>(oxide, mesh).apply();
+        lsVTKWriter<double>(mesh, "VTK/oxide_3.vtk").apply();
+        lsToSurfaceMesh<double, D>(silicon, mesh).apply();
+        lsVTKWriter<double>(mesh, "VTK/silicon_3.vtk").apply();
+        lsToSurfaceMesh<double, D>(siliconMask, mesh).apply();
+        lsVTKWriter<double>(mesh, "VTK/mask_3.vtk").apply();
+        lsToSurfaceMesh<double, D>(spacer, mesh).apply();
+        lsVTKWriter<double>(mesh, "VTK/spacer_3.vtk").apply();
+        lsToSurfaceMesh<double, D>(gate, mesh).apply();
+        lsVTKWriter<double>(mesh, "VTK/gate_3.vtk").apply();
+    }
+
+    //now use plane to cut off at 70 nm
+    auto dummyPlane = lsSmartPointer<lsDomain<double, D>>::New(bounds, boundaryCons, gridDelta);
+    {
+        double origin1[3] = {0, 0, 70};
+        auto plane = lsSmartPointer<lsPlane<double, D>>::New(origin1, planeNormal);
+        lsMakeGeometry<double, D>(dummyPlane, plane).apply();
+    }
+        lsBooleanOperation<double, D>(gate, dummyPlane, lsBooleanOperationEnum::INTERSECT).apply();
+    {
+        auto mesh = lsSmartPointer<lsMesh<double>>::New();
+        lsToSurfaceMesh<double, D>(oxide, mesh).apply();
+        lsVTKWriter<double>(mesh, "VTK/oxide_4.vtk").apply();
+        lsToSurfaceMesh<double, D>(silicon, mesh).apply();
+        lsVTKWriter<double>(mesh, "VTK/silicon_4.vtk").apply();
+        lsToSurfaceMesh<double, D>(siliconMask, mesh).apply();
+        lsVTKWriter<double>(mesh, "VTK/mask_4.vtk").apply();
+        lsToSurfaceMesh<double, D>(spacer, mesh).apply();
+        lsVTKWriter<double>(mesh, "VTK/spacer_4.vtk").apply();
+        lsToSurfaceMesh<double, D>(gate, mesh).apply();
+        lsVTKWriter<double>(mesh, "VTK/gate_4.vtk").apply();
+    }
+
 
 
     return EXIT_SUCCESS;
