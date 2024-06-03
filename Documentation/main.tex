@@ -1,0 +1,110 @@
+\documentclass[12pt,a4paper]{article}
+\special{papersize=210mm,297mm}
+
+%\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\bibliographystyle{unsrt}
+
+\title{Assignment 2\\SimFab}
+\author{Stefan Lenz\\11810302}
+
+%---------------------------------------------------------------------------
+%Packages
+%---------------------------------------------------------------------------
+\usepackage[parfill]{parskip} 
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{listings}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=C++,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+\usepackage[parfill]{parskip} 
+\usepackage[pdftex]{graphicx}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+%Kopf und Fußzeilebearbeiten
+\usepackage{fancyhdr}
+%pic in paragraph bilder in Absätzen winbinden
+\usepackage{picinpar}
+%matheshit
+\usepackage{amsmath}
+\usepackage{amsfonts}
+%Eurosymbol verwendedn
+\usepackage{eurosym}
+%verschiedene textsymbole (copyrightzeichen, ...)
+\usepackage{textcomp}
+\usepackage{threeparttable} % for footnotes in tables!
+\interfootnotelinepenalty=10000 % for longer footnotes on same page
+%Improves the interface for defining floating objects such as figures and tables
+\usepackage{float}
+%zum importieren von grafiken etc.
+\usepackage{import}
+\setcounter{topnumber}{2}%max 2 top Floats auf Textseiten
+\setcounter{bottomnumber}{2}%
+\setcounter{totalnumber}{5}% nur max 4 Floats je Seite?
+\setcounter{dbltopnumber}{3}%
+\renewcommand\topfraction{0.5}%	wieviel Hoehe maximal fuer Floats erlaubt ist
+\renewcommand\dbltopfraction{0.5}%	wieviel Hoehe maximal fuer Floats erlaubt ist
+\renewcommand\bottomfraction{0.5}% sonst keine grossen Bilder unten [b] platzieren!
+\renewcommand\textfraction{0.1}%	Mindestplatz fuer Text wenn Floats auf der Seite
+
+\usepackage[verbose]{placeins} % Zitatstyle
+\renewcommand{\arraystretch}{1.5} %tabellen reihenabstand vergrößern
+\usepackage[small,bf]{caption}
+\usepackage[
+labelfont=sf,
+hypcap=false,
+format=hang,
+margin=1cm,
+]{caption}
+
+\usepackage{wrapfig}
+\usepackage{subfig}
+\usepackage{color}
+% \usepackage[pdfauthor={Stefan Lenz},             %
+%                        pdftitle={Bachelorarbeit: Entwicklung eines optischen Herzfrequenzsensors},  %
+%                        pagebackref=true,           %
+%                        pdftex]{hyperref}
+
+% By default, URLs are printed using mono-spaced fonts. 
+% If you don't like it and you want them to be printed 
+% with the same style of the rest of the text, you can use this:
+%\urlstyle{same}
+\usepackage[footnote]{acronym}
+\usepackage{hyperref}
+\date{}
+
+\begin{document}
+
+%---------------------------------------------------------------------------------------------------
+%\href{http://www.namsu.de}{\LaTeX{} Kurs 2009}
+%\href{mailto:test@example.net}{Mail an Test}
+%\cite{stefan}
+%--------------------------------------------------------------------------------------------------
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+\section{Abstract}
+
+\end{document} 

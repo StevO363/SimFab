@@ -36,7 +36,8 @@ public:
     case 2:
       // velocity for the passivation material it is assumend ALMOST perfectly directional etching
       // etch rate is the vertical component of surface normal but at least -0.2 (thats the almost perfect)
-      velocity = std::min(-std::abs(normalVector[2]), -0.2);
+      if (normalVector[2] > 0) {velocity = -std::abs(normalVector[2]);} else {velocity = 0;}
+      // if (normalVector[2] > 0) {velocity = -std::abs(normalVector[2]);} else {velocity = -0.3;}
       break;    
   }
   return velocity;
