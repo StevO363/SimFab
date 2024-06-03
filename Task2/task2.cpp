@@ -36,7 +36,8 @@ public:
     case 2:
       // velocity for the passivation material it is assumend ALMOST perfectly directional etching
       // etch rate is the vertical component of surface normal but at least -0.2 (thats the almost perfect)
-      velocity = std::min(-std::abs(normalVector[2]), -0.2);    
+      velocity = std::min(-std::abs(normalVector[2]), -0.2);
+      break;    
   }
   return velocity;
   }
@@ -57,7 +58,7 @@ int main(int argc, char** argv){
 
   //set up dimensions and domain extent
   constexpr int D = 3;
-  double extent = 40;
+  double extent = 20;
   double gridDelta = 1;
 
   double bounds[2 * D] = {-extent, extent, -extent, extent, -extent, extent};
