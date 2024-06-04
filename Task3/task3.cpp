@@ -25,9 +25,11 @@ public:
                            const std::array<double, 3> &normalVector,
                            unsigned long /*pointId*/) {
     if (material == 2 && normalVector[2] > 0) {
-	  return -std::abs(normalVector[2]);
+	  return -std::abs(normalVector[2]); //-0.1; //add the +/-0.1 if needed
+    //   double scaling = 0.3;
+    //   return -std::abs(normalVector[2]) + (normalVector[0]+normalVector[1])*scaling;
     } else
-      return 0;
+      return 0; 
   }
 };
 
@@ -38,9 +40,11 @@ public:
                            const std::array<double, 3> &normalVector,
                            unsigned long /*pointId*/) {
     if ((material == 2 || material == 3) && normalVector[2] > 0) {
-	  return -std::abs(normalVector[2]);
+	  return -std::abs(normalVector[2]); //-0.1; //add the +/-0.1 if needed
+    //   double scaling = 0.3;
+    //   return -std::abs(normalVector[2]) + (normalVector[0]+normalVector[1])*scaling;
     } else
-      return 0;
+      return 0; 
   }
 };
 
@@ -113,6 +117,7 @@ int main() {
     {
         std::cout << "Etching silicon Fin ..." << std::endl;
         lsAdvect<double, D> advectionKernel;
+        // advectionKernel.setIntegrationScheme(lsIntegrationSchemeEnum::LAX_FRIEDRICHS_1ST_ORDER);
 
         auto velocity = lsSmartPointer<directionalEtchSi>::New();
         advectionKernel.setVelocityField(velocity);
@@ -251,7 +256,9 @@ int main() {
     //etching the gate and spacer material
     double gateSpacerTime = 80;
     {
+        std::cout << "Etching the gate and spacer material ..." << std::endl;
         lsAdvect<double, D> advectionKernel;
+        // advectionKernel.setIntegrationScheme(lsIntegrationSchemeEnum::LAX_FRIEDRICHS_1ST_ORDER);
         auto velocity = lsSmartPointer<gateSpacerVelocity>::New();
         advectionKernel.setVelocityField(velocity);
 
@@ -262,6 +269,7 @@ int main() {
         advectionKernel.insertNextLevelSet(gateMask);
         advectionKernel.setAdvectionTime(gateSpacerTime);
         advectionKernel.apply();
+        std::cout << "Finished etching gate and spacer material" << std::endl;
     }
     {
         auto mesh = lsSmartPointer<lsMesh<double>>::New();

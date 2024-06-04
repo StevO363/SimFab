@@ -1,0 +1,636 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.6.4)  4 JUN 2024 10:34
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**/home/stefan/TU/SimFab/Documentation/main.tex
+(/home/stefan/TU/SimFab/Documentation/main.tex
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-22>
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
+File: size12.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count187
+\c@section=\count188
+\c@subsection=\count189
+\c@subsubsection=\count190
+\c@paragraph=\count191
+\c@subparagraph=\count192
+\c@figure=\count193
+\c@table=\count194
+\abovecaptionskip=\skip48
+\belowcaptionskip=\skip49
+\bibindent=\dimen140
+) (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2024/01/07 v24.1 The Babel package
+\babel@savecnt=\count195
+\U@D=\dimen141
+\l@unhyphenated=\language89
+ (/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
+\bbl@readstream=\read2
+\bbl@dirlevel=\count196
+ (/usr/share/texlive/texmf-dist/tex/generic/babel-english/english.ldf
+Language: english 2017/06/06 v3.3r English support from the babel system
+Package babel Info: Hyphen rules for 'canadian' set to \l@english
+(babel)             (\language0). Reported on input line 102.
+Package babel Info: Hyphen rules for 'australian' set to \l@ukenglish
+(babel)             (\language87). Reported on input line 105.
+Package babel Info: Hyphen rules for 'newzealand' set to \l@ukenglish
+(babel)             (\language87). Reported on input line 108.
+)) (/usr/share/texlive/texmf-dist/tex/generic/babel/locale/en/babel-english.tex
+Package babel Info: Importing font and identification data for english
+(babel)             from babel-en.ini. Reported on input line 11.
+) (/usr/share/texlive/texmf-dist/tex/latex/parskip/parskip.sty
+Package: parskip 2021-03-14 v2.0h non-zero parskip adjustments
+ (/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+) (/usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+) (/usr/share/texlive/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+)) (/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count197
+)) (/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2023/08/05 v3.6o Customizing captions (AR)
+ (/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
+\caption@tempdima=\dimen142
+\captionmargin=\dimen143
+\caption@leftmargin=\dimen144
+\caption@rightmargin=\dimen145
+\caption@width=\dimen146
+\caption@indent=\dimen147
+\caption@parindent=\dimen148
+\caption@hangindent=\dimen149
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count198
+\c@continuedfloat=\count199
+) (/usr/share/texlive/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
+Package caption Info: New subtype `subfigure' on input line 238.
+\c@subfigure=\count266
+Package caption Info: New subtype `subtable' on input line 238.
+\c@subtable=\count267
+) (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count268
+\lst@gtempboxa=\box51
+\lst@token=\toks18
+\lst@length=\count269
+\lst@currlwidth=\dimen150
+\lst@column=\count270
+\lst@pos=\count271
+\lst@lostspace=\dimen151
+\lst@width=\dimen152
+\lst@newlines=\count272
+\lst@lineno=\count273
+\lst@maxwidth=\dimen153
+ (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
+\c@lstnumber=\count274
+\lst@skipnumbers=\count275
+\lst@framebox=\box52
+) (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2023/02/27 1.9 listings configuration
+))
+Package: listings 2023/02/27 1.9 (Carsten Heinz)
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2022/01/06 v1.3d Standard LaTeX Color (DPC)
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 149.
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
+) (/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx)) (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2023/02/27 1.9 listings language file
+) (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2023/02/27 1.9 listings language file
+) (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
+) (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+) (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 107.
+)
+\Gin@req@height=\dimen154
+\Gin@req@width=\dimen155
+) (/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+Package: fancyhdr 2022/11/09 v4.1 Extensive control of page headers and footers
+\f@nch@headwidth=\skip50
+\f@nch@O@elh=\skip51
+\f@nch@O@erh=\skip52
+\f@nch@O@olh=\skip53
+\f@nch@O@orh=\skip54
+\f@nch@O@elf=\skip55
+\f@nch@O@erf=\skip56
+\f@nch@O@olf=\skip57
+\f@nch@O@orf=\skip58
+) (/usr/share/texlive/texmf-dist/tex/latex/picinpar/picinpar.sty
+Pictures in Paragraphs. Version 1.3, November 22, 2022
+\br=\count276
+\bl=\count277
+\na=\count278
+\nb=\count279
+\tcdsav=\count280
+\tcl=\count281
+\tcd=\count282
+\tcn=\count283
+\cumtcl=\count284
+\cumpartcl=\count285
+\lftside=\dimen156
+\rtside=\dimen157
+\hpic=\dimen158
+\vpic=\dimen159
+\strutilg=\dimen160
+\picwd=\dimen161
+\topheight=\dimen162
+\ilg=\dimen163
+\lpic=\dimen164
+\lwindowsep=\dimen165
+\rwindowsep=\dimen166
+\cumpar=\dimen167
+\twa=\toks19
+\la=\toks20
+\ra=\toks21
+\ha=\toks22
+\pictoc=\toks23
+\rawtext=\box53
+\holder=\box54
+\windowbox=\box55
+\wartext=\box56
+\finaltext=\box57
+\aslice=\box58
+\bslice=\box59
+\wbox=\box60
+\wstrutbox=\box61
+\picbox=\box62
+\waslice=\box63
+\wbslice=\box64
+\fslice=\box65
+) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2023/05/13 v2.17o AMS math features
+\@mathmargin=\skip59
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2021/08/26 v2.01 AMS text
+ (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks24
+\ex@=\dimen168
+)) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen169
+) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2022/04/08 v2.04 operator names
+)
+\inf@bad=\count286
+LaTeX Info: Redefining \frac on input line 234.
+\uproot@=\count287
+\leftroot@=\count288
+LaTeX Info: Redefining \overline on input line 399.
+LaTeX Info: Redefining \colon on input line 410.
+\classnum@=\count289
+\DOTSCASE@=\count290
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box66
+\strutbox@=\box67
+LaTeX Info: Redefining \big on input line 722.
+LaTeX Info: Redefining \Big on input line 723.
+LaTeX Info: Redefining \bigg on input line 724.
+LaTeX Info: Redefining \Bigg on input line 725.
+\big@size=\dimen170
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
+\macc@depth=\count291
+LaTeX Info: Redefining \bmod on input line 905.
+LaTeX Info: Redefining \pmod on input line 910.
+LaTeX Info: Redefining \smash on input line 940.
+LaTeX Info: Redefining \relbar on input line 970.
+LaTeX Info: Redefining \Relbar on input line 971.
+\c@MaxMatrixCols=\count292
+\dotsspace@=\muskip16
+\c@parentequation=\count293
+\dspbrk@lvl=\count294
+\tag@help=\toks25
+\row@=\count295
+\column@=\count296
+\maxfields@=\count297
+\andhelp@=\toks26
+\eqnshift@=\dimen171
+\alignsep@=\dimen172
+\tagshift@=\dimen173
+\tagwidth@=\dimen174
+\totwidth@=\dimen175
+\lineht@=\dimen176
+\@envbody=\toks27
+\multlinegap=\skip60
+\multlinetaggap=\skip61
+\mathdisplay@stack=\toks28
+LaTeX Info: Redefining \[ on input line 2953.
+LaTeX Info: Redefining \] on input line 2954.
+) (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+) (/usr/share/texlive/texmf-dist/tex/latex/eurosym/eurosym.sty
+Package: eurosym 1998/08/06 v1.1 European currency symbol ``Euro''
+\@eurobox=\box68
+) (/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
+) (/usr/share/texlive/texmf-dist/tex/latex/threeparttable/threeparttable.sty
+Package: threeparttable 2003/06/13  v 3.0
+\@tempboxb=\box69
+) (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count298
+\float@exts=\toks29
+\float@box=\box70
+\@float@everytoks=\toks30
+\@floatcapt=\box71
+) (/usr/share/texlive/texmf-dist/tex/latex/import/import.sty
+Package: import 2020/04/01  v 6.2
+) (/usr/share/texlive/texmf-dist/tex/latex/placeins/placeins.sty
+Package: placeins 2005/04/18  v 2.2
+)
+
+/home/stefan/TU/SimFab/Documentation/main.tex:75: Package caption Error: small undefined.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.75 \usepackage
+                [
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+/home/stefan/TU/SimFab/Documentation/main.tex:75: Package caption Error: bf undefined.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.75 \usepackage
+                [
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+(/usr/share/texlive/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen177
+\WF@size=\dimen178
+\c@WF@wrappedlines=\count299
+\WF@box=\box72
+\WF@everypar=\toks31
+Package: wrapfig 2003/01/31  v 3.6
+) (/usr/share/texlive/texmf-dist/tex/latex/subfig/subfig.sty
+Package: subfig 2005/06/28 ver: 1.3 subfig package
+\c@KVtest=\count300
+\sf@farskip=\skip62
+\sf@captopadj=\dimen179
+\sf@capskip=\skip63
+\sf@nearskip=\skip64
+\sf@top=\skip65
+\sf@bottom=\skip66
+) (/usr/share/texlive/texmf-dist/tex/latex/acronym/acronym.sty
+Package: acronym 2020/04/17 v1.47 Support for acronyms (Tobias Oetiker)
+ (/usr/share/texlive/texmf-dist/tex/latex/bigfoot/suffix.sty
+Package: suffix 2006/07/15 1.5a Variant command support
+) (/usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.sty (/usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.tex
+\xs_counta=\count301
+\xs_countb=\count302
+)
+Package: xstring 2023/08/22 v1.86 String manipulations (CT)
+)
+\AC@clearlist=\toks32
+) (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2024-01-20 v7.01h Hypertext links for LaTeX
+ (/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+) (/usr/share/texlive/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+) (/usr/share/texlive/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+ (/usr/share/texlive/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
+ (/usr/share/texlive/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)) (/usr/share/texlive/texmf-dist/tex/latex/hycolor/hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+) (/usr/share/texlive/texmf-dist/tex/latex/auxhook/auxhook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+) (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2023-11-26 v2.56 Cross-referencing by name of section
+ (/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+) (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+)
+\c@section@level=\count303
+)
+\@linkdim=\dimen180
+\Hy@linkcounter=\count304
+\Hy@pagecounter=\count305
+ (/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2024-01-20 v7.01h Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+) (/usr/share/texlive/texmf-dist/tex/generic/intcalc/intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+\Hy@SavedSpaceFactor=\count306
+ (/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def
+File: puenc.def 2024-01-20 v7.01h Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+Package hyperref Info: Hyper figures OFF on input line 4179.
+Package hyperref Info: Link nesting OFF on input line 4184.
+Package hyperref Info: Hyper index ON on input line 4187.
+Package hyperref Info: Plain pages OFF on input line 4194.
+Package hyperref Info: Backreferencing OFF on input line 4199.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4446.
+\c@Hy@tempcnt=\count307
+ (/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4784.
+\XeTeXLinkMargin=\dimen181
+ (/usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+ (/usr/share/texlive/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
+))
+\Fld@menulength=\count308
+\Field@Width=\dimen182
+\Fld@charsize=\dimen183
+Package hyperref Info: Hyper figures OFF on input line 6063.
+Package hyperref Info: Link nesting OFF on input line 6068.
+Package hyperref Info: Hyper index ON on input line 6071.
+Package hyperref Info: backreferencing OFF on input line 6078.
+Package hyperref Info: Link coloring OFF on input line 6083.
+Package hyperref Info: Link coloring with OCG OFF on input line 6088.
+Package hyperref Info: PDF/A mode OFF on input line 6093.
+ (/usr/share/texlive/texmf-dist/tex/latex/base/atbegshi-ltx.sty
+Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
+package with kernel methods
+)
+\Hy@abspage=\count309
+\c@Item=\count310
+\c@Hfootnote=\count311
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+ (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2024-01-20 v7.01h Hyperref driver for pdfTeX
+ (/usr/share/texlive/texmf-dist/tex/latex/base/atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
+with kernel methods
+)
+\Fld@listcount=\count312
+\c@bookmark@seq@number=\count313
+ (/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
+ (/usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
+)
+\Hy@SectionHShift=\skip67
+) (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count314
+\l__pdf_internal_box=\box73
+) (./main.aux)
+\openout1 = `main.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 98.
+LaTeX Font Info:    ... okay on input line 98.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 98.
+LaTeX Font Info:    ... okay on input line 98.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 98.
+LaTeX Font Info:    ... okay on input line 98.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 98.
+LaTeX Font Info:    ... okay on input line 98.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 98.
+LaTeX Font Info:    ... okay on input line 98.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 98.
+LaTeX Font Info:    ... okay on input line 98.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 98.
+LaTeX Font Info:    ... okay on input line 98.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 98.
+LaTeX Font Info:    ... okay on input line 98.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 98.
+LaTeX Font Info:    ... okay on input line 98.
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: float package is loaded.
+Package caption Info: hyperref package is loaded.
+Package caption Info: listings package is loaded.
+Package caption Info: picinpar package is loaded.
+Package caption Info: threeparttable package is loaded.
+Package caption Info: wrapfig package is loaded.
+Package caption Info: End \AtBeginDocument code.
+\c@lstlisting=\count315
+ (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count316
+\scratchdimen=\dimen184
+\scratchbox=\box74
+\nofMPsegments=\count317
+\nofMParguments=\count318
+\everyMPshowfont=\toks33
+\MPscratchCnt=\count319
+\MPscratchDim=\dimen185
+\MPnumerator=\count320
+\makeMPintoPDFobject=\count321
+\everyMPtoPDFconversion=\toks34
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+))
+/home/stefan/TU/SimFab/Documentation/main.tex:98: Undefined control sequence.
+<argument> \sf@counterlist 
+                           
+l.98 \begin{document}
+                     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Package hyperref Info: Link coloring OFF on input line 98.
+\@outlinefile=\write3
+\openout3 = `main.out'.
+
+LaTeX Font Info:    Trying to load font information for U+msa on input line 106.
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 106.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [1
+
+
+Non-PDF special ignored!
+<special> papersize=210mm,297mm
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+No file main.toc.
+\tf@toc=\write4
+\openout4 = `main.toc'.
+
+[2]
+
+LaTeX Warning: Reference `sec:velo' on page 3 undefined on input line 120.
+
+[3]
+
+LaTeX Warning: Reference `sec:Results1' on page 4 undefined on input line 131.
+
+
+LaTeX Warning: Reference `fig:3D' on page 4 undefined on input line 132.
+
+
+LaTeX Warning: Reference `fig:axis' on page 4 undefined on input line 132.
+
+<figures/axis_label.png, id=34, 77.28876pt x 80.3pt>
+File: figures/axis_label.png Graphic file (type png)
+<use figures/axis_label.png>
+Package pdftex.def Info: figures/axis_label.png  used on input line 134.
+(pdftex.def)             Requested size: 85.35826pt x 88.69171pt.
+[4{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+
+LaTeX Warning: Reference `fig:optimal_dir' on page 5 undefined on input line 146.
+
+<figures/optimal_dir.png, id=45, 766.865pt x 568.1225pt>
+File: figures/optimal_dir.png Graphic file (type png)
+<use figures/optimal_dir.png>
+Package pdftex.def Info: figures/optimal_dir.png  used on input line 148.
+(pdftex.def)             Requested size: 270.30118pt x 200.2502pt.
+[5 <./figures/axis_label.png>]
+
+LaTeX Warning: Reference `fig:optimal_dir' on page 6 undefined on input line 152.
+
+
+LaTeX Warning: Reference `fig:optimal_dir_long' on page 6 undefined on input line 152.
+
+<figures/optimal_dir_long.png, id=57, 579.16376pt x 709.65125pt>
+File: figures/optimal_dir_long.png Graphic file (type png)
+<use figures/optimal_dir_long.png>
+Package pdftex.def Info: figures/optimal_dir_long.png  used on input line 154.
+(pdftex.def)             Requested size: 270.30118pt x 331.19719pt.
+<figures/3D_optimal_dir.png, id=58, 851.18pt x 666.49pt>
+File: figures/3D_optimal_dir.png Graphic file (type png)
+<use figures/3D_optimal_dir.png>
+Package pdftex.def Info: figures/3D_optimal_dir.png  used on input line 159.
+(pdftex.def)             Requested size: 270.30118pt x 211.65399pt.
+[6 <./figures/optimal_dir.png>] [7 <./figures/optimal_dir_long.png>]
+
+LaTeX Warning: Reference `fig:long_depos' on page 8 undefined on input line 167.
+
+<figures/longer_depos.png, id=72, 1202.4925pt x 422.57875pt>
+File: figures/longer_depos.png Graphic file (type png)
+<use figures/longer_depos.png>
+Package pdftex.def Info: figures/longer_depos.png  used on input line 169.
+(pdftex.def)             Requested size: 270.30118pt x 94.98584pt.
+
+LaTeX Warning: Reference `fig:long_etch' on page 8 undefined on input line 173.
+
+<figures/longer_etch.png, id=73, 745.78625pt x 598.235pt>
+File: figures/longer_etch.png Graphic file (type png)
+<use figures/longer_etch.png>
+Package pdftex.def Info: figures/longer_etch.png  used on input line 175.
+(pdftex.def)             Requested size: 270.30118pt x 216.81583pt.
+[8 <./figures/3D_optimal_dir.png> <./figures/longer_depos.png>]
+
+LaTeX Warning: Reference `sec:optimal_params' on page 9 undefined on input line 180.
+
+
+LaTeX Warning: Reference `sec:optimal_params' on page 9 undefined on input line 180.
+
+
+LaTeX Warning: Reference `sec:dir_etch' on page 9 undefined on input line 186.
+
+[9 <./figures/longer_etch.png>]
+
+LaTeX Warning: Reference `fig:iso_etch_long' on page 10 undefined on input line 190.
+
+<figures/optimal_iso_long.png, id=90, 579.16376pt x 709.65125pt>
+File: figures/optimal_iso_long.png Graphic file (type png)
+<use figures/optimal_iso_long.png>
+Package pdftex.def Info: figures/optimal_iso_long.png  used on input line 192.
+(pdftex.def)             Requested size: 213.39566pt x 261.47318pt.
+
+LaTeX Warning: Reference `sec:Change_Params' on page 10 undefined on input line 197.
+
+[10 <./figures/optimal_iso_long.png>] (./main.aux)
+ ***********
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-22>
+ ***********
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  1143480DA83BF857AD2F39A07246BF1E;1495.
+ ) 
+Here is how much of TeX's memory you used:
+ 14882 strings out of 474222
+ 234873 string characters out of 5748734
+ 1932975 words of memory out of 5000000
+ 36899 multiletter control sequences out of 15000+600000
+ 569451 words of font info for 80 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 69i,8n,79p,1362b,1166s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb>
+Output written on main.pdf (10 pages, 334870 bytes).
+PDF statistics:
+ 182 PDF objects out of 1000 (max. 8388607)
+ 120 compressed objects within 2 object streams
+ 33 named destinations out of 1000 (max. 500000)
+ 36 words of extra memory for PDF output out of 10000 (max. 10000000)
+
